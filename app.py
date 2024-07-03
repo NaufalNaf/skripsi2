@@ -4,7 +4,7 @@ import numpy as np
 from sklearn.preprocessing import StandardScaler
 
 st.write("Loading model...")
-
+clf = joblib.load('klasifikasi_obesitas.pkl')
 scaler = joblib.load('models/scaler.sav')
 st.write("Model loaded.")
 
@@ -33,7 +33,9 @@ if st.button('Predict'):
         input_data_scaled = scaler.transform(input_data)
         prediction = clf.predict(input_data_scaled)
         # Lakukan prediksi
-        
+        prediction = clf.predict(input_data)
+        # Debug: Tampilkan prediksi mentah
+        st.write(f'Raw prediction: {prediction}')
         
         # Tampilkan hasil prediksi
         obesity_level = ['Extremely Weak','weak','Normal', 'Overweight', 'Obese','Extremely Obese']
