@@ -4,7 +4,7 @@ import numpy as np
 from sklearn.preprocessing import StandardScaler
 
 st.write("Loading model...")
-clf = joblib.load('klasifikasi_obesitas.pkl')
+
 scaler = joblib.load('models/scaler.sav')
 st.write("Model loaded.")
 
